@@ -1,0 +1,8 @@
+Project Layout
+
+# Application setup for beginners
+    1.create __init__ file
+    2.create create_app function
+    3.import flask object and creat it as app
+    4.configure app
+
