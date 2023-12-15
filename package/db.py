@@ -3,6 +3,8 @@ import sqlite3
 import click as cmd
 from flask import current_app as app, g, Flask
 
+import colorama
+colorama.init()
 # func for get database
 def get_db():
     if 'db' not in g:
@@ -17,6 +19,7 @@ def close_db(e=None):
     "for close database if exists"
     db = g.pop('db', -1)
     if db != -1:
+        print(f'{colorama.Fore.RED} Database closed')
         db.close()
 
 def init_db():
@@ -27,8 +30,7 @@ def init_db():
 
 @cmd.command('init-database')
 def init_db_cmd():
-    import colorama
-    colorama.init()
+    
     init_db()
 
     cmd.echo(f'{colorama.Fore.GREEN} Database was successfully created')
