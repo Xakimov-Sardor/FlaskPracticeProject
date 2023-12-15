@@ -18,6 +18,12 @@ def create_app():
         mkdir(app.instance_path)
     except:...
    
+    from .views import views
+    from .auth import auth
+
+    app.register_blueprint(auth)
+    app.register_blueprint(views)
+
 
     from .db import init_app
     init_app(app)
