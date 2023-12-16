@@ -1,5 +1,6 @@
 from flask import Flask
 from os import path, mkdir
+from flaskext.markdown import Markdown
 
 def create_app():
     
@@ -28,5 +29,6 @@ def create_app():
     from .db import init_app
     init_app(app)
     
+    Markdown(app)
 
     return app
