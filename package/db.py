@@ -13,7 +13,7 @@ def get_db():
             detect_types=sqlite3.PARSE_DECLTYPES, # for detect data type
         )
         g.db.row_factory = sqlite3.Row # allows you to get information from the database in the form of a dict
-        return g.db
+    return g.db
 
 def close_db(e=None):
     "for close database if exists"
