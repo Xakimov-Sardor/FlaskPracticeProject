@@ -21,9 +21,12 @@ def create_app():
    
     from .views import views
     from .auth import auth
+    from .error import error
 
     app.register_blueprint(auth)
     app.register_blueprint(views)
+    app.register_blueprint(error)
+
 
 
     from .db import init_app
