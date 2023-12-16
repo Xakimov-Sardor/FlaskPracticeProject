@@ -6,10 +6,10 @@
   <ul>
     {% if g.current_user %}
       <li><span>{{ g.current_user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      <li><a href="{{ url_for('auth.logout') }}">Chiqish</a>
     {% else %}
-      <li><a href="{{ url_for('auth.signup') }}">Sign Up</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+      <li><a href="{{ url_for('auth.signup') }}">Ro'yxatdan o'tish</a>
+      <li><a href="{{ url_for('auth.login') }}">Tizimga kirish</a>
     {% endif %}
   </ul>
 </nav>
@@ -21,4 +21,5 @@
     <div class="flash">{{ message }}</div>
   {% endfor %}
   {% block content %}{% endblock %}
+
 </section>
