@@ -16,9 +16,10 @@ def signup():
 
         if len(username) < 3:
             error = 'Foydalanuvchi nomi kamida 3 ta belgidan iborat bo\'lishi kerak'
+            flash(error)
         elif len(password) < 8:
             error = 'Iltimos kuchliroq parol o\'rnatish'
-
+            flash(error)
         if error is None:
             try:
                 db.execute(
@@ -37,6 +38,7 @@ def signup():
                 print(f'{username} ok')
             except db.IntegrityError:
                 error = 'Bu foydalanuvchi nomi band'
+                flash(error)
                 print(f'{username} already exist')
             else:
                 print('ok all')
@@ -98,7 +100,7 @@ def login_required(view):
     import functools
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if g.user is None:
+        if g.current_user is None:
             return redirect(url_for('auth.login'))
 
         return view(**kwargs)
